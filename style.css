@@ -93,4 +93,25 @@ a.b:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .legend{margin:0;font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
 .legend .b{height:24px;min-width:28px;font-size:13px;margin:0}
 .lg{flex-basis:100%}
-@media (max-width:560px){body{font-size:16px}.tools{flex-direction:column;align-items:flex-start}}
+.mx.one{min-width:0}
+@media (max-width:640px){
+body{font-size:16px}
+.tools{flex-direction:column;align-items:flex-start}
+.bar{padding:8px 0;position:static}
+.lg{font-size:13px}
+.scroll{overflow:visible;border:0;background:none;border-radius:0}
+.mx{min-width:0;display:block}
+.mx thead{display:none}
+.mx tbody{display:flex;flex-direction:column;gap:12px}
+.mx tr.row{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.mx tr.row[hidden]{display:none}
+.mx tbody th{display:flex;align-items:center;position:static;border-right:0;border-bottom:1px solid var(--line);background:var(--soft);min-width:0;padding:10px 14px}
+.mx td{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:8px 14px;min-width:0}
+.mx td[hidden],.mx td.none{display:none}
+.mx td::before{content:attr(data-s);flex:none;width:2.6em;font-weight:900;font-size:15px;color:var(--ink)}
+.mx td.sci{background:none}
+.mx td.sci::before{color:var(--accent)}
+.mx tbody tr:hover th,.mx tbody tr:hover td{background:inherit}
+.mx tbody tr:hover th{background:var(--soft)}
+.b{height:38px;min-width:44px;font-size:15px}
+}

@@ -8,9 +8,12 @@
     if (a.dataset.paper) track('open_paper', {paper: a.dataset.paper});
     else if (a.classList.contains('track')) track('click_' + a.dataset.ev, {});
   });
-  var state = {y: '', g: ''};
+  var state = {y: '', g: '', s: ''};
   function apply() {
     var n = 0;
+    document.querySelectorAll('[data-s]:not(.chip)').forEach(function (c) {
+      c.hidden = !!state.s && c.dataset.s !== state.s;
+    });
     document.querySelectorAll('.row').forEach(function (r) {
       var show = (!state.y || r.dataset.y === state.y) && (!state.g || r.dataset.g === state.g);
       r.hidden = !show; if (show) n++;
@@ -21,7 +24,7 @@
   }
   document.querySelectorAll('.chip').forEach(function (b) {
     b.addEventListener('click', function () {
-      var kind = 'y' in b.dataset ? 'y' : 'g';
+      var kind = 'y' in b.dataset ? 'y' : 's' in b.dataset ? 's' : 'g';
       state[kind] = b.dataset[kind];
       document.querySelectorAll('.chip[data-' + kind + ']').forEach(function (c) { c.setAttribute('aria-pressed', c === b); });
       apply();
