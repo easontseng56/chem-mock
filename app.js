@@ -27,7 +27,7 @@
       apply();
     });
   });
-  var tg = document.querySelector('.toggle');
+  var tg = document.querySelector('.toggle') || document.createElement('button');
   tg.addEventListener('click', function () {
     var open = tg.textContent === '全部展開';
     document.querySelectorAll('.row:not([hidden]) details').forEach(function (d) { d.open = open; });
